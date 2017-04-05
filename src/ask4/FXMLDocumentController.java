@@ -11,6 +11,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.Button;
 
 /**
  *
@@ -18,25 +20,45 @@ import javafx.scene.control.Label;
  */
 public class FXMLDocumentController implements Initializable {
     
+    private String message;
+
     @FXML
-    private Label label;
+    private Button send1;
+
     @FXML
-    private Label label2;
+    private Button send2;
+
     @FXML
-    private Label label3;
+    private TextArea user1;
+
+    @FXML
+    private TextArea user2;
     
     @FXML
+    private TextArea frame;
+    
+        
+    @FXML
     private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
-        
-        
+        message = user1.getText();
+        ConverterToBinary converter = new ConverterToBinary(message);
+        frame.setText((converter.frames.toString()));
+        user2.setText(message);
     }
+    
+    @FXML
+    private void handleButtonAction1(ActionEvent event) {
+        message = user2.getText();
+        ConverterToBinary converter = new ConverterToBinary(message);
+        frame.setText((converter.frames.toString()));
+        user1.setText(message);
+    }
+    
+
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        label3.setText("No siemanko");
     }    
     
 }
