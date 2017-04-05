@@ -13,9 +13,8 @@ package ask4;
  */
 public class Dictionary {
     
-    String forbiddenWords = "Java,JVM,Microsoft";
+    String forbiddenWords = "ETI,PG,kurcze,kurde,Gdańsk,polityka,słowa";
     String[] words = forbiddenWords.split(",");
-    String s = "lorem ";
     String message = "";
 
     Dictionary(String frames){
