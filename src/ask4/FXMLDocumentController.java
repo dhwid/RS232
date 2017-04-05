@@ -41,17 +41,21 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonAction(ActionEvent event) {
         message = user1.getText();
-        ConverterToBinary converter = new ConverterToBinary(message);
+        Converter converter = new Converter(message);
         frame.setText((converter.frames.toString()));
-        user2.setText(message);
+        Reconverter reconverter = new Reconverter(converter.frames);
+        Dictionary dict = new Dictionary(reconverter.message);
+        user2.setText(dict.message);
     }
     
     @FXML
     private void handleButtonAction1(ActionEvent event) {
         message = user2.getText();
-        ConverterToBinary converter = new ConverterToBinary(message);
+        Converter converter = new Converter(message);
         frame.setText((converter.frames.toString()));
-        user1.setText(message);
+        Reconverter reconverter = new Reconverter(converter.frames);
+        Dictionary dict = new Dictionary(reconverter.message);
+        user1.setText(dict.message);
     }
     
 

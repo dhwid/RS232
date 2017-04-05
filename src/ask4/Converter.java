@@ -12,21 +12,19 @@ import java.util.*;
  *
  * @author Dawid
  */
-public class ConverterToBinary {
+public class Converter {
     
     public byte[] bites;
     public int[] frame = new int[8];
     Vector frames = new Vector();
     
-
-
-    
-    public ConverterToBinary(String message){
+    public Converter(String message){
         int i=0;
         bites = message.getBytes();
         for (int j = 0; j < bites.length; j++){
             frames.add(0); //dodajemy bit startu
             frame=printBinaryform(bites[j],frame);
+            System.out.println(frames.elementAt(i));
             addingFrametoFrames(frames,frame);
             frames.add(1); //dodajemy bit stopu
             frames.add(1); //dodajemy drugi bit stopu
